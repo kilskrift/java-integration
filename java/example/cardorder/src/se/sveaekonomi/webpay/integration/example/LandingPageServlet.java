@@ -44,8 +44,9 @@ public class LandingPageServlet extends HttpServlet implements Servlet {
 		// process the response post data returned by Svea		
 	    SveaResponse myResponse = 
 	    		new SveaResponse( 
-		    		request.getParameter("response"), 								// POST "response", the base64 encoded response message
-		    		mySecretWord		// the secretword corresponding to the request merchant id
+		    		request.getParameter("response"),	// POST "response", the base64 encoded response message
+				request.getParameter("mac"),		// the mac received, used for response validation
+		    		mySecretWord				// the secretword corresponding to the request merchant id
 				)
 	    ;		
 						
